@@ -1,0 +1,10 @@
+SELECT pdk.nama AS 'Nama Penduduk',
+pdk.tmpt_tinggal AS 'Tempat Tinggal',
+phn.pasangan_id AS 'Pasangan Id',
+phn.tgl_pisah AS 'Tanggal Pisah',
+IF(phn.id = 100, "Beri Bingkisan", "Tidak Diberi Bingkisan") AS Keterangan
+FROM penduduk AS pdk
+INNER JOIN pasangan AS pgn
+ON pdk.id = pgn.penduduk_id
+INNER JOIN perpisahan AS phn
+ON phn.pasangan_id  = pgn.pasangan_id

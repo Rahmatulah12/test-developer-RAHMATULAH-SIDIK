@@ -1,0 +1,10 @@
+SELECT ps.tempat_tinggal AS 'Tempat Tinggal',
+COUNT(ps.nama_pahlawan) AS 'Jumlah Pahlawan',
+js.jenis_senjata AS 'Jenis Senjata'
+FROM pahlawan_super AS ps
+INNER JOIN senjata AS s
+ON ps.id = s.pahlawan_super_id
+INNER JOIN jenis_senjata AS js
+ON js.id = s.jenis_senjata_id
+WHERE js.jenis_senjata = 'Kapak'
+GROUP BY ps.tempat_tinggal

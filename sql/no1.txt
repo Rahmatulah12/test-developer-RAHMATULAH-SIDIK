@@ -1,0 +1,6 @@
+nomor 1 query nya salah.
+yang benar
+
+-- ini adalah jawaban soal no 1
+SELECT merek, COUNT(model) FROM ponsel
+WHERE dualsim = 1
