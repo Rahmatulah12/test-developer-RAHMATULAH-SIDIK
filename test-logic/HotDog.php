@@ -5,26 +5,37 @@ class HotDog
     private $dictionary = ["hot", 'dog', "lot", "log"];
     private $input;
 
-    public function setInput(array $dictionary)
+    public function setInput(array $input)
     {
-        $this->dictionary = $dictionary;
+        $this->input = $input;
     }
 
     public function specifyDictionary()
     {
-        $jmlhDictionary  = count($this->dictionary);
-        $hasilKata = implode(",", $this->dictionary);
-        $hasilKata = preg_replace("/[^a-zA-Z]/", "", $hasilKata);
+        $jmlhInput  = count($this->input);
+        // $hasilKata = implode(",", $this->dictionary);
+        // $hasilKata = preg_replace("/[^a-zA-Z]/", "", $hasilKata);
         // konversi input
-        $konversiInput = implode(",", $this->setInput(["hot", "dog"]));
-        echo $konversiInput;
-        // if(preg_match("/$hasilKata/", $hasilKata))
-        // {
-        //     echo $hasilKata;
-        // }
+        // $konversiInput = implode(",", (array)$this->input);
+        // $konversiInput = preg_replace("/[^a-zA-Z]/", "", $konversiInput);
+        for($i = 0; $i < $jmlhInput; $i++)
+        {
+            for($j = 0; $j < count($this->dictionary); $j++){
+                if($this->dictionary[$j] === $this->input[$i])
+                {
+                    echo $this->input[$i] . " ";
+                }
+
+                if($this->dictionary[$j] !== $this->input[$i])
+                {
+                    echo $this->input[$i];
+                }
+                
+            }
+        }
     }
 }
 
 $obj = new HotDog;
-$obj->setInput(["hot", "dog"]);
+$obj->setInput(["hit", "dog"]);
 $obj->specifyDictionary();
